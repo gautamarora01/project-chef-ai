@@ -284,11 +284,7 @@ button:disabled {
   font-size: 1rem;
   padding: 1rem;
   color: #888;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { opacity: 0.4; }
-  50% { opacity: 1; }
-  100% { opacity: 0.4; }
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+  animation-delay: 2s; 
 }
