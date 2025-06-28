@@ -35,7 +35,7 @@ function App(){
     <>
       <Header />
       {!backendAwake ? (
-        <div className="wake-up-msg">
+        <div className={healthRetries<3?"wake-up-msg":"transparent-text"}>
           Waking up the AI Chef... please wait a few seconds.
         </div>) 
         : (<Main />)
