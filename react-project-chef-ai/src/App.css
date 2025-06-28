@@ -287,11 +287,6 @@ button:disabled {
   animation: pulse 2s infinite;
 }
 
-.transparent-text{
-  color: transparent;
-  font-size: 0.1rem;
-}
-
 @keyframes pulse {
   0% { opacity: 0.4; }
   50% { opacity: 1; }
