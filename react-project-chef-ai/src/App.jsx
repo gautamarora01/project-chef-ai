@@ -5,17 +5,41 @@ import Main from "./components/Main";
 
 function App(){
   
+  const [backendAwake, setBackendAwake] = React.useState(false);
+  
+  const [healthRetries, setHealthRetries] = React.useState(3);
+
   React.useEffect(() => {
-    // Wake up the backend instance on first load
-    fetch("https://project-chef-ai.onrender.com/api/healthcheck")
-      .then(() => console.log("Backend awake"))
-      .catch((err) => console.error("Healthcheck failed:", err));
+
+    async function checkHealth(retries) {
+      try {
+        const res = await fetch("https://project-chef-ai.onrender.com/api/healthcheck");
+        if (res.ok) {
+          console.log("Backend awake");
+          setBackendAwake(true);
+        } else {
+          throw new Error("Not OK");
+        }
+      } catch (err) {
+        console.warn("Healthcheck failed:", err.message);
+        if (retries > 0) {
+          setTimeout(() => checkHealth(retries - 1), 3000); // Retry in 3s
+        }
+      }
+    }
+
+    checkHealth(healthRetries);
   }, []);
 
   return (
     <>
       <Header />
-      <Main />
+      {!backendAwake ? (
+        <div className="wake-up-msg">
+          Waking up the AI Chef... please wait a few seconds.
+        </div>) 
+        : (<Main />)
+      }      
     </>
   )
 }
