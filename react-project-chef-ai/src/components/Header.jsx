@@ -4,7 +4,7 @@ function Header(){
 
     return (
         <header>
-            <img src={chefAiLogo}/>
+            <img src={chefAiLogo} alt="chef-ai-logo-png"/>
             <h1>Chef AI</h1>            
         </header>
     )

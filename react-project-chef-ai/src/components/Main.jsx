@@ -9,6 +9,8 @@ import Ingredients from "./Ingredients";
 
     const [model,setModel]=React.useState("default");
 
+    const [limitIngredients,setLimitIngredients]=React.useState(false);
+
     const [recipeShown, setRecipeShown]=React.useState(false);
 
     function addIngredient(formData){
@@ -16,14 +18,21 @@ import Ingredients from "./Ingredients";
         //instead of onSubmit={}, takes parameter as formData and automatically
         //prevents default submission and automatically resets formElement
         const newIngredient=formData.get("ingredient");
+
         setIngredients((prevIngredients)=>{
             return [...prevIngredients,newIngredient];
         });
+
+        if(ingredients.length==49){
+            setLimitIngredients(true);
+        }
     }
 
     function removeIngredient(index){
         setIngredients((prevIngredients)=>{
-            return prevIngredients.filter((_,ind) => ind !== index);
+            const newIngredients=prevIngredients.filter((_,ind)=>ind!=index);
+            if(newIngredients.length<50) setLimitIngredients(false);
+            return newIngredients;
         });
     };
 
@@ -38,13 +47,13 @@ import Ingredients from "./Ingredients";
 
     return (
         <main>
-            <Form formAddIngredient={addIngredient}/>
+            <Form formAddIngredient={addIngredient} ingredients={ingredients} limitIngredients={limitIngredients}/>
             {   
                 ingredients.length>0 && 
                 <Ingredients ingredients={ingredients} model={model} handleModelChange={handleModelChange} 
                 recipeShown={recipeShown} toggleRecipeShown={toggleRecipeShown} removeIngredient={removeIngredient}/>
             }
-            {recipeShown && <Recipe ingredients={ingredients} model={model} recipeShown={recipeShown}/>}
+            {recipeShown && !limitIngredients && <Recipe ingredients={ingredients} model={model} recipeShown={recipeShown}/>}
         </main>
     )
 }

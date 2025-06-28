@@ -8,7 +8,9 @@ function Form(props){
                 aria-label="Add ingredients"
                 name="ingredient"
             />
-            <button>+ Add ingredient</button>
+            <button disabled={props.limitIngredients}>+ Add ingredient</button>
+            {props.limitIngredients && 
+                <p className="warning-text"> You cannot add more than <strong>50 ingredients</strong></p>}
         </form>
     )
 }

@@ -271,3 +271,10 @@ main{
     transform: translateY(-8px);
   }
 }
+
+button:disabled {
+  background-color: #d1d5db; /* light gray */
+  color: #6b7280;            /* muted text */
+  cursor: not-allowed;
+  opacity: 0.6;
+}
