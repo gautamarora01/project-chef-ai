@@ -11,7 +11,7 @@ function Recipe(props){
 
         async function fetchRecipe(){
             try {
-                const res=await fetch("http://localhost:3001/api/recipe",
+                const res=await fetch("https://project-chef-ai.onrender.com/api/recipe",
                 {
                     method:"POST",
                     headers:{
