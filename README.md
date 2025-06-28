@@ -25,13 +25,14 @@
 - [React](https://reactjs.org/)
 - [Vite](https://vitejs.dev/)
 - [React Markdown](https://github.com/remarkjs/react-markdown)
-- [Vercel](https://vercel.com/) (Deployment)
 
 ### Backend
 - [Node.js](https://nodejs.org/)
 - [Express](https://expressjs.com/)
 - [Groq SDK](https://www.groq.com/) / [Hugging Face Inference API](https://huggingface.co/inference)
-- [Render](https://render.com/) (Deployment)
+
+### Tip
+- You can also take help from scrimba's Bob Ziroll Tutorial on react
 
 ---
 
@@ -70,8 +71,10 @@ npm run dev (before this make sure to update fetch URL to your backend URL)
 
 ## Deployment
 
-### Frontend -> vercel
-### Backend -> render
+### Frontend
+- [Vercel](https://vercel.com/) 
+### Backend
+- [Render](https://render.com/)
 
 ## 🤝 Contributing
 ### Pull requests and suggestions are welcome! Fork this repo and help enhance Chef AI.
