@@ -10,6 +10,10 @@ const app=express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/api/healthcheck", (req, res) => {
+    res.status(200).send("OK");
+});
+
 
 app.post("/api/recipe",async (req,res)=>{
     const {ingredients,model}=req.body;
