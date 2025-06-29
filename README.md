@@ -22,9 +22,9 @@
 ## 🛠️ Tech Stack
 
 ### Frontend
-- [React](https://reactjs.org/)
-- [Vite](https://vitejs.dev/)
-- [React Markdown](https://github.com/remarkjs/react-markdown)
+- [react](https://reactjs.org/)
+- [react-dom]
+- [react Markdown](https://github.com/remarkjs/react-markdown)
 
 ### Backend
 - [Node.js](https://nodejs.org/)
@@ -40,41 +40,38 @@
 
 
 ``` bash
-//1. Clone the Repository
+#1. Clone the Repository
 
 git clone https://github.com/your-username/chef-ai.git
 cd chef-ai
 
-//2. Set up environment variables
+#2. Set up environment variables
 
 PORT=3001
 GROQ_API_KEY=your_groq_key
 
-//3. Install dependencies
-# Install backend dependencies
+#3. Install dependencies
+#backend dependencies
 cd backend
 npm install
 
-# Install frontend dependencies
+#frontend dependencies
 cd react-project-chef-ai
 npm install
 
-//4. Run locally
+#4. Run locally
 cd backend
 npm start
 
 http://localhost:3001
 
 cd react-project-chef-ai
-npm run dev (before this make sure to update fetch URL to your backend URL)
+npm run dev #(before this make sure to update fetch URL to your backend URL)
 ```
 
 ## Deployment
-
-### Frontend
-- [Vercel](https://vercel.com/) 
-### Backend
-- [Render](https://render.com/)
+-Frontend -> Vercel
+-Backend -> Render
 
 ## 🤝 Contributing
 ### Pull requests and suggestions are welcome! Fork this repo and help enhance Chef AI.
