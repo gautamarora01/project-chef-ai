@@ -23,7 +23,7 @@
 
 ### Frontend
 - [react](https://reactjs.org/)
-- [react-dom]
+- [react-dom](https://www.npmjs.com/package/react-dom)
 - [react Markdown](https://github.com/remarkjs/react-markdown)
 
 ### Backend
@@ -70,8 +70,11 @@ npm run dev #(before this make sure to update fetch URL to your backend URL)
 ```
 
 ## Deployment
+
 -Frontend -> Vercel
+---
 -Backend -> Render
+---
 
 ## 🤝 Contributing
 ### Pull requests and suggestions are welcome! Fork this repo and help enhance Chef AI.
