@@ -7,7 +7,7 @@ function App(){
   
   const [backendAwake, setBackendAwake] = React.useState(false);
   
-  const [healthRetries, setHealthRetries] = React.useState(3);
+  const MAX_RETRIES=3;
 
   React.useEffect(() => {
 
@@ -23,12 +23,13 @@ function App(){
       } catch (err) {
         console.warn("Healthcheck failed:", err.message);
         if (retries > 0) {
-          setTimeout(() => checkHealth(retries - 1), 3000); // Retry in 3s
+          setTimeout(() => checkHealth(retries-1), 3000); // Retry in 3s
         }
+        else console.log("Backend failed to wake up after max retries")
       }
     }
 
-    checkHealth(healthRetries);
+    checkHealth(MAX_RETRIES);
   }, []);
 
   return (
