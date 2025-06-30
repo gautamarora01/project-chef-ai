@@ -2,18 +2,25 @@ import React from "react";
 import "./App.css"
 import Header from "./components/Header";
 import Main from "./components/Main";
+import fetchWithTimeout from "./components/fetchWithTimeout";
 
 function App(){
   
   const [backendAwake, setBackendAwake] = React.useState(false);
   
-  const MAX_RETRIES=3;
+  const MAX_RETRIES=5;
 
   React.useEffect(() => {
 
     async function checkHealth(retries) {
       try {
-        const res = await fetch("https://project-chef-ai.onrender.com/api/healthcheck");
+        
+        console.log(`Attempting healthcheck (${MAX_RETRIES - retries + 1}/${MAX_RETRIES})`);
+
+        const res = await fetchWithTimeout("https://project-chef-ai.onrender.com/api/healthcheck", {
+          timeout: 8000, // 8s timeout
+        });
+
         if (res.ok) {
           console.log("Backend awake");
           setBackendAwake(true);
