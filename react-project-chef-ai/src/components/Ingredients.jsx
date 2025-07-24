@@ -29,7 +29,7 @@ function Ingredients(props) {
                         name="model"
                     >
                         <option value="default">--Choose--</option>
-                        <option value="Mistral AI">Mistral AI</option>
+                        <option value="Google Gemma">Google Gemma</option>
                         <option value="Meta Llama">Meta Llama</option>
                     </select>
                     </div>

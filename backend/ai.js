@@ -16,12 +16,12 @@ You are an assistant that receives a list of ingredients that a
 //const hf = new InferenceClient(process.env.HF_ACCESS_TOKEN);
 const groq = new Groq({apiKey:process.env.GROQ_KEY});
 
-export async function getRecipeFromMistral(ingredientsArr) {
+export async function getRecipeFromGemma(ingredientsArr) {
     const ingredientsString = ingredientsArr.join(", ")
 
     try {
         const response = await groq.chat.completions.create({
-            model: "mistral-saba-24b",
+            model: "gemma2-9b-it",
             messages: [
                 { role: "system", content: SYSTEM_PROMPT },
                 { role: "user", content: `I have ${ingredientsString}. Please give me a recipe you'd recommend I make!` },

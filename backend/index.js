@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from "cors";
 import dotenv from "dotenv";
-import {getRecipeFromMistral,getRecipeFromLLAMA3} from './ai.js';
+import {getRecipeFromGemma,getRecipeFromLLAMA3} from './ai.js';
 dotenv.config();
 
 const PORT=process.env.PORT || 3001;
@@ -47,7 +47,7 @@ app.post("/api/recipe",async (req,res)=>{
     let message="";
     
     try {
-        if(model==="default"|| model==="Mistral AI") message=await getRecipeFromMistral(ingredients);
+        if(model==="default"|| model==="Google Gemma") message=await getRecipeFromGemma(ingredients);
         else if(model==="Meta Llama") message=await getRecipeFromLLAMA3(ingredients);
 
         if (!message || typeof message !== "string" || message.trim() === "") {
